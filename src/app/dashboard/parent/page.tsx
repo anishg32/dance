@@ -45,7 +45,7 @@ export default async function ParentDashboard({
     return (
       <div className={styles.pageContainer}>
         <div className="container">
-          <div className={styles.errorBox}>
+          <div className={styles.orBox}>
             <h2>Profile Not Found</h2>
             <p>Your parent profile has not been created yet. Please contact administration.</p>
           </div>
@@ -60,7 +60,7 @@ export default async function ParentDashboard({
     return (
       <div className={styles.pageContainer}>
         <div className="container">
-          <div className={styles.errorBox}>
+          <div className={styles.orBox}>
             <h2>No Linked Students</h2>
             <p>You currently have no students linked to your account. Please contact administration to link your children's profiles.</p>
           </div>
