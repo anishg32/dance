@@ -4,6 +4,7 @@ import Introduction from '@/components/Introduction';
 import Features from '@/components/Features';
 import Achievements from '@/components/Achievements';
 import Rankings from '@/components/Rankings';
+import SectionDivider from '@/components/motion/SectionDivider';
 import { calculateStudentRankings } from "@/lib/rankingEngine";
 
 export default async function Home() {
@@ -20,20 +21,25 @@ export default async function Home() {
   return (
     <>
       <Hero />
+      <SectionDivider variant="gold" />
       <Introduction />
+      <SectionDivider variant="subtle" />
       <Features />
+      <SectionDivider variant="gold" />
       <Achievements />
+      <SectionDivider variant="subtle" />
       <Rankings rankings={top3Rankings} />
+      <SectionDivider variant="gold" />
       
-      {/* Testimonials and final CTA */}
+      {/* Final CTA */}
       <section className="section" style={{ backgroundColor: 'var(--bg-main)', textAlign: 'center' }}>
         <div className="container">
           <h2 className="heading-secondary" style={{ marginBottom: '1rem' }}>Begin Your Journey in Bharatanatyam</h2>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem' }}>
             Whether you are taking your first steps or preparing for the stage, there is a place for you here.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <a href="/join" className="btn btn-primary">Apply for Admission</a>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="/admissions" className="btn btn-primary">Apply for Admission</a>
             <a href="/contact" className="btn btn-outline">Contact Academy</a>
           </div>
         </div>

@@ -81,7 +81,7 @@ export default function Navbar() {
 
         <div className={styles.actions}>
           <Link href="/login" className="btn btn-outline">Login</Link>
-          <Link href="/join" className="btn btn-primary">Join Academy</Link>
+          <Link href="/admissions" className="btn btn-primary">Join Academy</Link>
           
           <button 
             className={styles.mobileToggle} 
@@ -124,7 +124,7 @@ export default function Navbar() {
           ))}
           <li className={styles.mobileActions}>
             <Link href="/login" className="btn btn-outline" onClick={() => setMobileMenuOpen(false)}>Login</Link>
-            <Link href="/join" className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>Join Academy</Link>
+            <Link href="/admissions" className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>Join Academy</Link>
           </li>
         </ul>
       </div>

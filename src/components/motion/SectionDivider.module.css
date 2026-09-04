@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  transform-origin: center;
+}
+
+.gold {
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.maroon {
+  background: linear-gradient(90deg, transparent, var(--color-maroon), transparent);
+}
+
+.subtle {
+  background: linear-gradient(90deg, transparent, rgba(203, 161, 83, 0.3), transparent);
+}
+
+.diamond {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}

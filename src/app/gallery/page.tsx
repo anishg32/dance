@@ -1,6 +1,7 @@
 import { academyConfig } from "@/config/academy";
 import prisma from "@/lib/prisma";
 import { Camera } from 'lucide-react';
+import PremiumImage from "@/components/ui/PremiumImage";
 import styles from './PublicGallery.module.css';
 
 
@@ -53,7 +54,7 @@ export default async function PublicGalleryPage({
               <div key={photo.id} className={styles.masonryItem}>
                 <div className={styles.imageWrapper}>
                   {photo.url ? (
-                    <img src={photo.url} alt={photo.title || 'Gallery Image'} loading="lazy" />
+                    <PremiumImage src={photo.url} alt={photo.title || 'Gallery Image'} fill />
                   ) : (
                     <div className={styles.placeholderImage}><Camera size={48} /></div>
                   )}

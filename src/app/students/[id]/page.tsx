@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import { notFound } from 'next/navigation';
 import { Trophy, Star, Calendar, MapPin, Award as AwardIcon } from 'lucide-react';
+import PremiumImage from "@/components/ui/PremiumImage";
 import styles from './StudentProfile.module.css';
 
 
@@ -70,7 +71,7 @@ export default async function StudentProfilePage({ params }: { params: Promise<{
           <div className={styles.profileHeader}>
             <div className={styles.avatarLarge}>
               {student.user.image ? (
-                <img src={student.user.image} alt={displayName} className={styles.avatarImg} />
+                <PremiumImage src={student.user.image} alt={displayName} fill containerClassName={styles.avatarImg} />
               ) : (
                 displayName.charAt(0)
               )}

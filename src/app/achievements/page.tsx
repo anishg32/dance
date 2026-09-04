@@ -48,7 +48,7 @@ export default async function HallOfFamePage({
           <form className={styles.filterForm}>
             <div className={styles.filterGroup}>
               <label>Position</label>
-              <select name="position" defaultValue={positionFilter} onChange={(e) => e.target.form?.submit()}>
+              <select name="position" defaultValue={positionFilter}>
                 <option value="">All Positions</option>
                 <option value="1st Place">1st Place (Gold)</option>
                 <option value="2nd Place">2nd Place (Silver)</option>

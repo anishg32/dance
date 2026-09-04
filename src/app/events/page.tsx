@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import { Calendar as CalendarIcon, MapPin, Clock, ArrowRight } from 'lucide-react';
+import PremiumImage from "@/components/ui/PremiumImage";
 import styles from './Events.module.css';
 
 
@@ -44,6 +45,7 @@ export default async function PublicEventsPage() {
             {upcomingEvents.map(event => (
               <div key={event.id} className={styles.eventCard}>
                 <div className={styles.dateCol}>
+                  <PremiumImage src="/images/hero/texture.jpg" alt="Event Background" fill overlay="maroon" containerClassName={styles.dateBg} />
                   <span className={styles.dateMonth}>{event.date.toLocaleString('default', { month: 'short' })}</span>
                   <span className={styles.dateDay}>{event.date.getDate()}</span>
                   <span className={styles.dateYear}>{event.date.getFullYear()}</span>
@@ -90,12 +92,15 @@ export default async function PublicEventsPage() {
             <div className={styles.pastGrid}>
               {pastEvents.map(event => (
                 <div key={event.id} className={styles.pastCard}>
-                  <div className={styles.pastHeader}>
-                    <span className={styles.pastType}>{event.featured ? 'Featured' : 'Event'}</span>
-                    <span className={styles.pastDate}>{event.date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  <PremiumImage src="/images/training/dancer.jpg" alt="Event image" fill overlay="dark" containerClassName={styles.pastCardBg} />
+                  <div className={styles.pastCardContent}>
+                    <div className={styles.pastHeader}>
+                      <span className={styles.pastType}>{event.featured ? 'Featured' : 'Event'}</span>
+                      <span className={styles.pastDate}>{event.date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                    </div>
+                    <h4 className={styles.pastTitle}>{event.title}</h4>
+                    <p className={styles.pastLocation}><MapPin size={12} style={{ display: 'inline', marginRight: '4px' }} />{event.location}</p>
                   </div>
-                  <h4 className={styles.pastTitle}>{event.title}</h4>
-                  <p className={styles.pastLocation}><MapPin size={12} style={{ display: 'inline', marginRight: '4px' }} />{event.location}</p>
                 </div>
               ))}
             </div>

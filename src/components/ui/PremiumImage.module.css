@@ -1,0 +1,57 @@
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  transform-origin: center;
+}
+
+.imageLoading {
+  opacity: 0;
+  filter: blur(8px);
+  transform: scale(1.05);
+}
+
+.imageLoaded {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  transition: opacity 1s ease-out;
+  pointer-events: none;
+}
+
+.overlayHidden {
+  opacity: 0;
+}
+
+.overlayVisible {
+  opacity: 1;
+}
+
+.overlayDark {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.overlayMaroon {
+  background-color: rgba(63, 17, 18, 0.4);
+}
+
+.overlayGold {
+  background-color: rgba(203, 161, 83, 0.2);
+}

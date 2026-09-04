@@ -1,0 +1,180 @@
+.pageContainer {
+  min-height: 100vh;
+  background-color: var(--color-charcoal);
+  padding-bottom: 6rem;
+  padding-top: 80px;
+}
+
+.heroSection {
+  background-color: var(--color-charcoal);
+  background-image: linear-gradient(135deg, #1A0808 0%, #3F1112 100%);
+  color: var(--color-ivory);
+  padding: 4rem 0 5rem;
+  text-align: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 992px) {
+  .contactGrid {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+.infoCard {
+  background-color: rgba(63, 17, 18, 0.6);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem 2rem;
+  border: 1px solid rgba(203, 161, 83, 0.2);
+  box-shadow: var(--shadow-dark);
+  color: var(--color-ivory);
+}
+
+.infoTitle {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-gold);
+  margin-bottom: 2rem;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoItem {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(203, 161, 83, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  flex-shrink: 0;
+  border: 1px solid rgba(203, 161, 83, 0.3);
+}
+
+.itemContent h4 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-ivory);
+}
+
+.itemContent p {
+  color: rgba(253, 251, 247, 0.8);
+  line-height: 1.6;
+}
+
+.formCard {
+  background-color: var(--color-ivory);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-dark);
+}
+
+.formTitle {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-maroon);
+  margin-bottom: 2rem;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.inputGroup textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(203, 161, 83, 0.1);
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+}

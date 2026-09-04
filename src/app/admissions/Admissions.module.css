@@ -1,103 +1,191 @@
 .admissionsContainer {
   min-height: 100vh;
   background-color: var(--bg-main);
-  padding-bottom: 6rem;
   position: relative;
 }
 
-.headerBackground {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 450px;
+/* 1. Cinematic Hero */
+.heroSection {
+  height: 60vh;
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-charcoal);
   background-image: linear-gradient(135deg, #1A0808 0%, #3F1112 100%);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
   z-index: 1;
 }
 
-.formWrapper {
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--color-ivory);
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.heroSubtitle {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(253, 251, 247, 0.9);
+  line-height: 1.6;
+}
+
+/* 2. Application Section */
+.applicationSection {
+  padding: 0 0 6rem 0;
+  margin-top: -80px;
+  position: relative;
+  z-index: 10;
+}
+
+.appContainer {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 0;
-  margin-top: 150px;
+  grid-template-columns: 1fr 1.3fr;
   background-color: var(--color-ivory);
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-dark);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   border-top: 4px solid var(--color-gold);
 }
 
-.infoSection {
+/* Left Panel */
+.infoPanel {
+  position: relative;
+  padding: 4rem 3rem;
   background-color: var(--color-charcoal);
   color: var(--color-ivory);
-  padding: 4rem 3rem;
-  background-image: radial-gradient(rgba(203, 161, 83, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
+  overflow: hidden;
 }
 
-.title {
+.infoBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.infoTitle {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: var(--color-gold);
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
-.description {
+.infoDesc {
   color: rgba(253, 251, 247, 0.8);
   line-height: 1.7;
   margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
 }
 
-.features {
+.featuresList {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
-.feature {
+.featureCard {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
   align-items: flex-start;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(203, 161, 83, 0.1);
+  border-radius: var(--border-radius-md);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(203, 161, 83, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .featureIcon {
   color: var(--color-gold);
-  font-size: 1.5rem;
-  margin-top: -5px;
+  flex-shrink: 0;
 }
 
-.feature h3 {
+.featureTitle {
   font-family: var(--font-heading);
   font-size: 1.2rem;
   color: var(--color-ivory);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
-.feature p {
+.featureDesc {
   color: rgba(253, 251, 247, 0.6);
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
-.formSection {
-  padding: 4rem 3rem;
+/* Right Panel Form */
+.formPanel {
+  padding: 4rem 3.5rem;
   background-color: var(--color-ivory);
+}
+
+.formHeader {
+  margin-bottom: 3rem;
 }
 
 .formTitle {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--color-maroon);
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+}
+
+.goldDivider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  gap: 2.5rem;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
+}
+
+.sectionLabel {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-gold-dark);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(203, 161, 83, 0.2);
+  padding-bottom: 0.5rem;
 }
 
 .grid2 {
@@ -106,36 +194,92 @@
   gap: 1.5rem;
 }
 
+/* Floating Label Inputs */
 .inputGroup {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-}
-
-.inputGroup label {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-primary);
 }
 
 .inputGroup input,
-.inputGroup select,
-.inputGroup textarea {
-  padding: 0.8rem 1rem;
-  border: 1px solid rgba(0,0,0,0.1);
+.inputGroup textarea,
+.inputGroup select {
+  width: 100%;
+  padding: 1.2rem 1rem 0.6rem;
+  border: 1px solid rgba(0,0,0,0.15);
   border-radius: var(--border-radius-sm);
   font-family: var(--font-body);
   font-size: 1rem;
   background-color: #fff;
   transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+
+.inputGroup textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.inputGroup label {
+  position: absolute;
+  top: 1.2rem;
+  left: 1rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  transform-origin: left top;
+}
+
+.inputGroup .staticLabel {
+  position: absolute;
+  top: -0.6rem;
+  left: 0.8rem;
+  font-size: 0.75rem;
+  color: var(--color-gold-dark);
+  background-color: #fff;
+  padding: 0 0.4rem;
+  font-weight: 500;
+  pointer-events: auto;
+}
+
+.inputGroup select {
+  padding: 1rem;
+}
+
+.inputGroup input:focus ~ label,
+.inputGroup input:not(:placeholder-shown) ~ label,
+.inputGroup textarea:focus ~ label,
+.inputGroup textarea:not(:placeholder-shown) ~ label {
+  transform: translateY(-0.8rem) scale(0.75);
+  color: var(--color-gold-dark);
+  font-weight: 500;
 }
 
 .inputGroup input:focus,
-.inputGroup select:focus,
-.inputGroup textarea:focus {
+.inputGroup textarea:focus,
+.inputGroup select:focus {
   outline: none;
   border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(203, 161, 83, 0.1);
+  box-shadow: 0 4px 15px rgba(203, 161, 83, 0.1);
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.submitIcon {
+  transition: transform 0.3s ease;
+}
+
+.submitBtn:hover .submitIcon {
+  transform: translateX(4px);
 }
 
 .error {
@@ -149,32 +293,297 @@
 
 .successMessage {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.successIconWrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(46, 125, 50, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .successIcon {
   color: #2E7D32;
-  margin-bottom: 1.5rem;
 }
 
-.successMessage h2 {
+.successTitle {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--color-maroon);
   margin-bottom: 1rem;
 }
 
-.successMessage p {
+.successDesc {
   color: var(--text-secondary);
   line-height: 1.6;
+  max-width: 400px;
 }
 
+/* 3. Admission Process Timeline */
+.processSection {
+  padding: 6rem 0;
+  background-color: var(--bg-subtle);
+}
+
+.timelineWrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timelineLineHorizontal {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(203, 161, 83, 0.2);
+  display: none;
+}
+
+.timelineProgressHorizontal {
+  height: 100%;
+  background-color: var(--color-gold);
+  transform-origin: left;
+}
+
+.timelineLineVertical {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(203, 161, 83, 0.2);
+}
+
+.timelineProgressVertical {
+  width: 100%;
+  background-color: var(--color-gold);
+  transform-origin: top;
+}
+
+.timelineSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.timelineStep {
+  display: flex;
+  flex-direction: column;
+  padding-left: 60px;
+  position: relative;
+}
+
+.stepMarker {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-ivory);
+  border: 2px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 1px;
+  top: 0;
+  box-shadow: 0 0 0 4px var(--bg-subtle);
+}
+
+.stepNum {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-maroon);
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--color-maroon);
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.stepDesc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .timelineLineHorizontal {
+    display: block;
+  }
+  
+  .timelineLineVertical {
+    display: none;
+  }
+  
+  .timelineSteps {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  
+  .timelineStep {
+    padding-left: 0;
+    padding-top: 60px;
+    flex: 1;
+  }
+  
+  .stepMarker {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+  
+  .stepTitle {
+    text-align: center;
+  }
+  
+  .stepDesc {
+    text-align: center;
+  }
+}
+
+/* 4. Trust Section */
+.trustSection {
+  padding: 6rem 0;
+  background-color: var(--color-ivory);
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .trustGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.trustImagePlaceholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.trustText {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.trustStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 2rem;
+}
+
+.trustStat {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNum {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-gold-dark);
+  font-weight: 700;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+/* 5. CTA Section */
+.ctaSection {
+  position: relative;
+  padding: 8rem 0;
+  background-color: var(--color-maroon);
+  text-align: center;
+  color: var(--color-ivory);
+}
+
+.ctaBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.ctaOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.ctaDesc {
+  color: rgba(253, 251, 247, 0.8);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .ctaActions {
+    flex-direction: column;
+  }
+}
+
+/* Responsive Overrides */
 @media (max-width: 1024px) {
-  .formWrapper {
+  .appContainer {
     grid-template-columns: 1fr;
   }
   
-  .infoSection {
+  .infoPanel {
+    padding: 3rem 2rem;
+  }
+  
+  .formPanel {
     padding: 3rem 2rem;
   }
 }
@@ -184,7 +593,8 @@
     grid-template-columns: 1fr;
   }
   
-  .formSection {
-    padding: 3rem 1.5rem;
+  .applicationSection {
+    margin-top: -40px;
+    padding: 0 1rem 4rem 1rem;
   }
 }

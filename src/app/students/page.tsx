@@ -2,6 +2,7 @@ import { academyConfig } from "@/config/academy";
 import prisma from "@/lib/prisma";
 import Link from 'next/link';
 import { Search } from 'lucide-react';
+import PremiumImage from "@/components/ui/PremiumImage";
 import styles from './StudentsDirectory.module.css';
 
 
@@ -63,7 +64,7 @@ export default async function PublicStudentsDirectory({
               />
             </div>
             
-            <select name="level" defaultValue={levelFilter} className={styles.filterSelect} onChange={(e) => e.target.form?.submit()}>
+            <select name="level" defaultValue={levelFilter} className={styles.filterSelect}>
               <option value="">All Levels</option>
               <option value="Beginner Level">Beginner</option>
               <option value="Intermediate Level">Intermediate</option>
@@ -84,7 +85,7 @@ export default async function PublicStudentsDirectory({
                 <div className={styles.cardHeader}>
                   <div className={styles.avatarLarge}>
                     {student.user.image ? (
-                      <img src={student.user.image} alt={student.displayName || ''} />
+                      <PremiumImage src={student.user.image} alt={student.displayName || ''} fill />
                     ) : (
                       (student.displayName || student.user.name || 'S').charAt(0)
                     )}
