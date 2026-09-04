@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 import Link from 'next/link';
 import { Search } from 'lucide-react';
 import PremiumImage from "@/components/ui/PremiumImage";
+import ParallaxSection from '@/components/motion/ParallaxSection';
 import styles from './StudentsDirectory.module.css';
 
 
@@ -43,12 +44,16 @@ export default async function PublicStudentsDirectory({
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.heroSection}>
-        <div className="container">
+      <ParallaxSection 
+        className={styles.heroSection} 
+        speed={0.5}
+        backgroundImage={<PremiumImage src="/images/students/silhouette.jpg" alt="Students" fill overlay="dark" />}
+      >
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <h1 className={styles.heroTitle}>Our Students</h1>
           <p className={styles.heroSubtitle}>Meet the dedicated dancers carrying forward the legacy of {academyConfig.name}.</p>
         </div>
-      </div>
+      </ParallaxSection>
 
       <div className="container">
         <div className={styles.filtersSection}>

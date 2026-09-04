@@ -2,6 +2,7 @@ import { academyConfig } from "@/config/academy";
 import prisma from "@/lib/prisma";
 import { MapPin, Users, Filter } from 'lucide-react';
 import PremiumImage from "@/components/ui/PremiumImage";
+import ParallaxSection from '@/components/motion/ParallaxSection';
 import styles from './Performances.module.css';
 
 export const revalidate = 3600; // Revalidate every hour
@@ -34,12 +35,16 @@ export default async function PublicPerformancesPage({
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.heroSection}>
-        <div className="container">
+      <ParallaxSection 
+        className={styles.heroSection} 
+        speed={0.5}
+        backgroundImage={<PremiumImage src="/images/performances/stage.jpg" alt="Stage" fill overlay="dark" />}
+      >
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <h1 className={styles.heroTitle}>Performance Archive</h1>
           <p className={styles.heroSubtitle}>Explore the rich history of stage performances and productions by {academyConfig.name}.</p>
         </div>
-      </div>
+      </ParallaxSection>
 
       <div className="container">
         <div className={styles.filtersSection}>

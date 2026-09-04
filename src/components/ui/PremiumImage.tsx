@@ -7,7 +7,7 @@ import styles from './PremiumImage.module.css';
 
 interface PremiumImageProps extends Omit<ImageProps, 'onLoad'> {
   containerClassName?: string;
-  overlay?: 'dark' | 'maroon' | 'gold' | 'none';
+  overlay?: 'dark' | 'maroon' | 'gold' | 'vignette' | 'ivory-fade' | 'none';
   animateOnScroll?: boolean;
 }
 
@@ -27,6 +27,8 @@ export default function PremiumImage({
       case 'dark': return styles.overlayDark;
       case 'maroon': return styles.overlayMaroon;
       case 'gold': return styles.overlayGold;
+      case 'vignette': return styles.overlayVignette;
+      case 'ivory-fade': return styles.overlayIvoryFade;
       default: return '';
     }
   };

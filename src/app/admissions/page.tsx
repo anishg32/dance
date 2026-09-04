@@ -78,8 +78,11 @@ export default function AdmissionsPage() {
 
   return (
     <div className={styles.admissionsContainer}>
-      {/* 1. Cinematic Hero */}
-      <ParallaxSection className={styles.heroSection} speed={0.5}>
+      <ParallaxSection 
+        className={styles.heroSection} 
+        speed={0.5}
+        backgroundImage={<PremiumImage src="/images/admissions/stage.jpg" alt="Admissions Stage" fill overlay="dark" />}
+      >
         <div className={styles.heroOverlay} />
         <div className={`container ${styles.heroContent}`}>
           <ScrollReveal direction="up" delay={0.2}>
@@ -290,7 +293,7 @@ export default function AdmissionsPage() {
           <div className={styles.trustGrid}>
             <ScrollReveal direction="right">
               <div className={styles.trustImagePlaceholder}>
-                <PremiumImage src="/images/hero/texture.jpg" alt="Legacy" fill overlay="dark" />
+                <PremiumImage src="/images/about/temple.jpg" alt="Legacy" fill overlay="dark" />
               </div>
             </ScrollReveal>
             <div className={styles.trustContent}>

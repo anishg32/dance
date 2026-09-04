@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import { Calendar as CalendarIcon, MapPin, Clock, ArrowRight } from 'lucide-react';
 import PremiumImage from "@/components/ui/PremiumImage";
+import ParallaxSection from '@/components/motion/ParallaxSection';
 import styles from './Events.module.css';
 
 
@@ -30,12 +31,16 @@ export default async function PublicEventsPage() {
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.heroSection}>
-        <div className="container">
+      <ParallaxSection 
+        className={styles.heroSection} 
+        speed={0.5}
+        backgroundImage={<PremiumImage src="/images/performances/stage.jpg" alt="Events" fill overlay="dark" />}
+      >
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <h1 className={styles.heroTitle}>Events & Workshops</h1>
           <p className={styles.heroSubtitle}>Join us for immersive workshops, special performances, and cultural celebrations.</p>
         </div>
-      </div>
+      </ParallaxSection>
 
       <div className="container">
         <h2 className={styles.sectionTitle}>Upcoming Events</h2>

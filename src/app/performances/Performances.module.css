@@ -1,14 +1,14 @@
 .pageContainer {
   min-height: 100vh;
-  background-color: var(--color-charcoal);
+  background-color: transparent;
   padding-bottom: 6rem;
   padding-top: 80px;
   color: var(--color-ivory);
 }
 
 .heroSection {
-  background-color: var(--color-charcoal);
-  background-image: linear-gradient(135deg, #1A0808 0%, #3F1112 100%);
+  background-color: transparent;
+  background-image: none;
   padding: 4rem 0 5rem;
   text-align: center;
   margin-bottom: 2rem;

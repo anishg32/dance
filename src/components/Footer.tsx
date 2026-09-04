@@ -6,12 +6,28 @@ import ScrollReveal from './motion/ScrollReveal';
 export default function Footer() {
   return (
     <footer style={{
-      backgroundColor: 'var(--color-charcoal)',
+      position: 'relative',
       color: '#fff',
       padding: '4rem 0 2rem',
       marginTop: 'auto',
-      borderTop: '4px solid var(--color-gold)'
+      borderTop: '4px solid var(--color-gold)',
+      overflow: 'hidden'
     }}>
+      <div style={{
+        position: 'absolute',
+        top: 0, left: 0, right: 0, bottom: 0,
+        backgroundImage: 'url(/images/textures/stone.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        zIndex: -2,
+      }} />
+      <div style={{
+        position: 'absolute',
+        top: 0, left: 0, right: 0, bottom: 0,
+        backgroundColor: 'rgba(30, 30, 30, 0.92)',
+        zIndex: -1,
+      }} />
+      
       <ScrollReveal direction="up" delay={0.1}>
         <div className="container" style={{
           display: 'grid',

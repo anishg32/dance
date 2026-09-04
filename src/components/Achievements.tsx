@@ -43,10 +43,10 @@ export default function Achievements() {
   };
 
   return (
-    <section className="section" style={{ backgroundColor: "var(--bg-main)" }}>
+    <section className="section">
       <div className="container">
         <ScrollReveal direction="up">
-          <h2 className="heading-secondary">Celebrating Excellence</h2>
+          <h2 className="heading-secondary" style={{ color: "var(--color-ivory)" }}>Celebrating Excellence</h2>
         </ScrollReveal>
 
         <motion.div

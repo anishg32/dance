@@ -8,9 +8,16 @@ export async function POST(request: Request) {
     const data = await request.json();
     
     // Basic validation
-    if (!data.studentName || !data.parentName || !data.age || !data.phone || !data.email) {
+    if (!data.studentName || !data.age || !data.phone || !data.email) {
       return NextResponse.json(
         { error: 'Missing required fields' },
+        { status: 400 }
+      );
+    }
+    
+    if (parseInt(data.age, 10) < 18 && !data.parentName) {
+      return NextResponse.json(
+        { error: 'Parent name is required for minors' },
         { status: 400 }
       );
     }
@@ -18,7 +25,7 @@ export async function POST(request: Request) {
     const admission = await prisma.admission.create({
       data: {
         studentName: data.studentName,
-        parentName: data.parentName,
+        parentName: data.parentName || 'N/A',
         age: parseInt(data.age, 10),
         phone: data.phone,
         email: data.email,

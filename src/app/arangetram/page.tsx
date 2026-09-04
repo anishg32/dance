@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Sparkles, BookOpen, Crown, Star, Palette } from 'lucide-react';
 import PremiumImage from "@/components/ui/PremiumImage";
 import ScrollReveal from "@/components/motion/ScrollReveal";
+import ParallaxSection from '@/components/motion/ParallaxSection';
 import styles from './Arangetram.module.css';
 
 export const revalidate = 3600; // Revalidate every hour
@@ -25,14 +26,18 @@ export default async function ArangetramPage() {
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.heroSection}>
-        <div className="container">
+      <ParallaxSection 
+        className={styles.heroSection} 
+        speed={0.5}
+        backgroundImage={<PremiumImage src="/images/performances/stage.jpg" alt="Stage" fill overlay="dark" />}
+      >
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <ScrollReveal direction="up">
             <h1 className={styles.heroTitle}>The Arangetram Journey</h1>
             <p className={styles.heroSubtitle}>Ascending the stage to become a complete artist. It takes years of rigorous discipline to reach this divine milestone.</p>
           </ScrollReveal>
         </div>
-      </div>
+      </ParallaxSection>
 
       <div className={styles.journeySection}>
         <div className="container">

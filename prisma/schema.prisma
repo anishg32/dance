@@ -8,42 +8,42 @@ datasource db {
 }
 
 model User {
-  id            String          @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  email         String?         @unique
+  email         String?   @unique
   emailVerified DateTime?
   image         String?
-  role          String          @default("STUDENT") // ADMIN, STUDENT, PARENT
-  password      String?         // Hashed password for local auth
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
-  
+  role          String    @default("STUDENT") // ADMIN, STUDENT, PARENT
+  password      String? // Hashed password for local auth
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
   studentProfile StudentProfile?
   parentProfile  ParentProfile?
 }
 
 model StudentProfile {
-  id               String   @id @default(cuid())
-  userId           String   @unique
-  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  displayName      String?
-  joiningYear      Int
-  level            String   // BEGINNER, INTERMEDIATE, ADVANCED, SENIOR, ARANGETRAM
+  id                String  @id @default(cuid())
+  userId            String  @unique
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  displayName       String?
+  joiningYear       Int
+  level             String // BEGINNER, INTERMEDIATE, ADVANCED, SENIOR, ARANGETRAM
   achievementPoints Int     @default(0)
-  currentRank      Int?
-  previousRank     Int?
-  bio              String?
-  activeStatus     Boolean  @default(true)
-  isPublic         Boolean  @default(true)
-  arangetramStatus String?
-  
-  awards           Award[]
-  performances     StudentPerformance[]
-  certificates     Certificate[]
-  parents          ParentStudent[]
-  
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  currentRank       Int?
+  previousRank      Int?
+  bio               String?
+  activeStatus      Boolean @default(true)
+  isPublic          Boolean @default(true)
+  arangetramStatus  String?
+
+  awards       Award[]
+  performances StudentPerformance[]
+  certificates Certificate[]
+  parents      ParentStudent[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([activeStatus])
   @@index([isPublic])
@@ -51,20 +51,20 @@ model StudentProfile {
 }
 
 model ParentProfile {
-  id               String   @id @default(cuid())
-  userId           String   @unique
-  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  students         ParentStudent[]
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  students ParentStudent[]
 
   @@index([userId])
 }
 
 model ParentStudent {
-  parentId         String
-  parent           ParentProfile @relation(fields: [parentId], references: [id], onDelete: Cascade)
-  studentId        String
-  student          StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  parentId  String
+  parent    ParentProfile  @relation(fields: [parentId], references: [id], onDelete: Cascade)
+  studentId String
+  student   StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
 
   @@id([parentId, studentId])
   @@index([parentId])
@@ -80,61 +80,61 @@ model Award {
   organization     String?
   year             Int
   date             DateTime?
-  position         String         // 1st Place, 2nd Place, etc.
+  position         String // 1st Place, 2nd Place, etc.
   category         String
-  competitionLevel String         // District, State, National, International
+  competitionLevel String // District, State, National, International
   image            String?
   description      String?
   verified         Boolean        @default(false)
-  
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime       @updatedAt
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([verified])
   @@index([studentId])
 }
 
 model Certificate {
-  id               String         @id @default(cuid())
-  studentId        String
-  student          StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
-  awardTitle       String
-  organization     String
-  year             Int
-  image            String
-  isPublic         Boolean        @default(false)
-  
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime       @updatedAt
+  id           String         @id @default(cuid())
+  studentId    String
+  student      StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  awardTitle   String
+  organization String
+  year         Int
+  image        String
+  isPublic     Boolean        @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([studentId])
   @@index([isPublic])
 }
 
 model Performance {
-  id               String               @id @default(cuid())
-  title            String
-  date             DateTime
-  location         String
-  description      String?
-  type             String               // Annual Day, Temple, Competition, etc.
-  photos           String               // JSON array of strings
-  videoUrl         String?
-  featured         Boolean              @default(false)
-  
-  students         StudentPerformance[]
-  
-  createdAt        DateTime             @default(now())
-  updatedAt        DateTime             @updatedAt
+  id          String   @id @default(cuid())
+  title       String
+  date        DateTime
+  location    String
+  description String?
+  type        String // Annual Day, Temple, Competition, etc.
+  photos      String // JSON array of strings
+  videoUrl    String?
+  featured    Boolean  @default(false)
+
+  students StudentPerformance[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([date])
 }
 
 model StudentPerformance {
-  studentId        String
-  student          StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
-  performanceId    String
-  performance      Performance    @relation(fields: [performanceId], references: [id], onDelete: Cascade)
+  studentId     String
+  student       StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  performanceId String
+  performance   Performance    @relation(fields: [performanceId], references: [id], onDelete: Cascade)
 
   @@id([studentId, performanceId])
   @@index([studentId])
@@ -152,94 +152,106 @@ model Event {
   registrationLink String?
   published        Boolean  @default(false)
   featured         Boolean  @default(false)
-  
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([published])
   @@index([date])
 }
 
 model Testimonial {
-  id               String   @id @default(cuid())
-  name             String
-  role             String   // Parent, Student
-  content          String
-  image            String?
-  published        Boolean  @default(false)
-  
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id        String  @id @default(cuid())
+  name      String
+  role      String // Parent, Student
+  content   String
+  image     String?
+  published Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([published])
 }
 
 model TrainingProgram {
-  id               String   @id @default(cuid())
-  level            String
-  ageGroup         String
-  focus            String
-  schedule         String
-  duration         String
-  
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id       String @id @default(cuid())
+  level    String
+  ageGroup String
+  focus    String
+  schedule String
+  duration String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model GalleryItem {
-  id               String   @id @default(cuid())
-  title            String?
-  url              String
-  category         String   // Performances, Awards, Students, Arangetram, Events, Workshops, Academy
-  event            String?
-  year             Int?
-  published        Boolean  @default(false)
-  
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id        String  @id @default(cuid())
+  title     String?
+  url       String
+  category  String // Performances, Awards, Students, Arangetram, Events, Workshops, Academy
+  event     String?
+  year      Int?
+  published Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([published])
 }
 
 model Admission {
-  id               String   @id @default(cuid())
-  studentName      String
-  parentName       String
-  age              Int
-  phone            String
-  email            String
-  experience       String?
-  preferredLevel   String?
-  preferredBatch   String?
-  message          String?
-  status           String   @default("New") // New, Contacted, Enrolled, Rejected
-  
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id             String  @id @default(cuid())
+  studentName    String
+  parentName     String
+  age            Int
+  phone          String
+  email          String
+  experience     String?
+  preferredLevel String?
+  preferredBatch String?
+  message        String?
+  status         String  @default("New") // New, Contacted, Enrolled, Rejected
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model RankingSettings {
-  id               String   @id @default(cuid())
-  key              String   @unique // e.g., '1st Place', 'Participation'
-  points           Int
-  
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id     String @id @default(cuid())
+  key    String @unique // e.g., '1st Place', 'Participation'
+  points Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model AuditLog {
-  id               String   @id @default(cuid())
-  actorId          String
-  actorName        String?
-  actorRole        String
-  action           String
-  targetType       String
-  targetId         String?
-  details          String?
-  
-  createdAt        DateTime @default(now())
+  id         String  @id @default(cuid())
+  actorId    String
+  actorName  String?
+  actorRole  String
+  action     String
+  targetType String
+  targetId   String?
+  details    String?
+
+  createdAt DateTime @default(now())
 
   @@index([actorId])
   @@index([targetId])
   @@index([targetType])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  status    String   @default("New") // New, Read, Replied
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

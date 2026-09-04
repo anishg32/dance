@@ -33,7 +33,8 @@ export default function AdminSidebar() {
     { name: 'Testimonials', path: '/admin/testimonials', icon: MessageSquare },
     { name: 'Training Programs', path: '/admin/training', icon: BookOpen },
     { name: 'Admissions', path: '/admin/admissions', icon: ClipboardList },
-    { name: 'Settings', path: '/admin/settings', icon: Settings },
+    { name: 'Parents', path: '/admin/parents', icon: Users },
+    { name: 'Contact Queries', path: '/admin/contact', icon: MessageSquare },
   ];
 
   return (

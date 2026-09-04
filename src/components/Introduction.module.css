@@ -1,5 +1,5 @@
 .section {
-  background-color: var(--bg-main);
+  background-color: transparent;
   position: relative;
 }
 

@@ -9,12 +9,36 @@ import { useState } from 'react';
 export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
-    setTimeout(() => {
-      setStatus("success");
-    }, 1000);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+      } else {
+        setStatus("idle");
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("idle");
+      alert("Failed to send message. Please try again.");
+    }
   };
 
   return (
@@ -84,22 +108,22 @@ export default function ContactPage() {
                   <form className={styles.contactForm} onSubmit={handleSubmit}>
                     <div className={styles.inputGroup}>
                       <label>Name</label>
-                      <input type="text" required placeholder="Your full name" />
+                      <input type="text" name="name" required placeholder="Your full name" />
                     </div>
                     
                     <div className={styles.inputGroup}>
                       <label>Email</label>
-                      <input type="email" required placeholder="Your email address" />
+                      <input type="email" name="email" required placeholder="Your email address" />
                     </div>
                     
                     <div className={styles.inputGroup}>
                       <label>Subject</label>
-                      <input type="text" required placeholder="What is this regarding?" />
+                      <input type="text" name="subject" required placeholder="What is this regarding?" />
                     </div>
                     
                     <div className={styles.inputGroup}>
                       <label>Message</label>
-                      <textarea required placeholder="How can we help you?"></textarea>
+                      <textarea name="message" required placeholder="How can we help you?"></textarea>
                     </div>
                     
                     <button type="submit" className={`btn btn-primary ${styles.submitBtn}`} disabled={status === "submitting"}>

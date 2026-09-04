@@ -2,6 +2,7 @@ import { academyConfig } from "@/config/academy";
 import prisma from "@/lib/prisma";
 import { Camera } from 'lucide-react';
 import PremiumImage from "@/components/ui/PremiumImage";
+import ParallaxSection from '@/components/motion/ParallaxSection';
 import styles from './PublicGallery.module.css';
 
 
@@ -28,12 +29,16 @@ export default async function PublicGalleryPage({
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.heroSection}>
-        <div className="container">
+      <ParallaxSection 
+        className={styles.heroSection} 
+        speed={0.5}
+        backgroundImage={<PremiumImage src="/images/textures/stone.jpg" alt="Gallery" fill overlay="dark" />}
+      >
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <h1 className={styles.heroTitle}>Gallery</h1>
           <p className={styles.heroSubtitle}>Capturing moments of grace, discipline, and artistic excellence at {academyConfig.name}.</p>
         </div>
-      </div>
+      </ParallaxSection>
 
       <div className="container">
         <div className={styles.filterNav}>

@@ -1,6 +1,8 @@
 import { academyConfig } from "@/config/academy";
 import Link from 'next/link';
 import { BookOpen, Star, Crown, Sparkles, CheckCircle, Clock, MapPin } from 'lucide-react';
+import ParallaxSection from '@/components/motion/ParallaxSection';
+import PremiumImage from '@/components/ui/PremiumImage';
 import styles from './Training.module.css';
 
 export const metadata = {
@@ -66,12 +68,16 @@ export default function TrainingPage() {
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.heroSection}>
-        <div className="container">
+      <ParallaxSection 
+        className={styles.heroSection} 
+        speed={0.5}
+        backgroundImage={<PremiumImage src="/images/training/ghungroo.jpg" alt="Training" fill overlay="dark" />}
+      >
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <h1 className={styles.heroTitle}>Training Programs</h1>
           <p className={styles.heroSubtitle}>A structured, traditional curriculum designed to shape passionate dancers into complete artists.</p>
         </div>
-      </div>
+      </ParallaxSection>
 
       <div className="container" style={{ marginBottom: '6rem' }}>
         <div className={styles.introBox}>

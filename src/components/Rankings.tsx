@@ -37,8 +37,8 @@ export default function Rankings({ rankings }: RankingProps) {
       <div className="container">
         <ScrollReveal direction="up">
           <div className={styles.header}>
-            <h2 className="heading-secondary">The Rising Stars</h2>
-            <p className={styles.subtitle}>
+            <h2 className="heading-secondary" style={{ color: "var(--color-ivory)" }}>The Rising Stars</h2>
+            <p className={styles.subtitle} style={{ color: "rgba(253, 251, 247, 0.8)" }}>
               Recognizing dedication, discipline and artistic excellence.
             </p>
           </div>
@@ -117,7 +117,7 @@ export default function Rankings({ rankings }: RankingProps) {
 
         <ScrollReveal direction="up" delay={0.5}>
           <div className={styles.actionContainer}>
-            <a href="/rankings" className="btn btn-outline">
+            <a href="/rankings" className="btn btn-outline" style={{ color: '#fff', borderColor: '#fff' }}>
               View Complete Rankings &rarr;
             </a>
           </div>

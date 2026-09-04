@@ -11,12 +11,12 @@
 }
 
 .scrolled {
-  background-color: rgba(253, 251, 247, 0.85);
+  background-color: rgba(30, 30, 30, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   padding: 0.8rem 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(203, 161, 83, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(203, 161, 83, 0.25);
 }
 
 .container {
@@ -33,7 +33,7 @@
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--color-maroon);
+  color: var(--color-ivory);
   text-decoration: none;
   letter-spacing: 1px;
 }
@@ -64,14 +64,14 @@
 .navLink {
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-primary);
+  color: rgba(253, 251, 247, 0.9);
   position: relative;
   transition: color 0.3s ease;
   padding: 0.5rem 0;
 }
 
 .navLink:hover, .active {
-  color: var(--color-maroon);
+  color: var(--color-gold);
 }
 
 .navLink::after {
@@ -112,7 +112,7 @@
   display: block;
   background: none;
   border: none;
-  color: var(--color-maroon);
+  color: var(--color-ivory);
   cursor: pointer;
 }
 
