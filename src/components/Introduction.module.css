@@ -1,0 +1,98 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-maroon);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.signature {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.guruName {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-gold-dark);
+  font-style: italic;
+  margin-bottom: 0.2rem;
+}
+
+.guruTitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.imageContainer {
+  position: relative;
+  padding: 1rem;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-color: var(--color-charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  font-family: var(--font-heading);
+  border-radius: var(--border-radius-sm);
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-dark);
+}
+
+.decorativeBorder {
+  position: absolute;
+  top: 2rem;
+  left: -2rem;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--color-gold);
+  z-index: 1;
+  border-radius: var(--border-radius-sm);
+}
+
+@media (max-width: 768px) {
+  .decorativeBorder {
+    top: 1rem;
+    left: 1rem;
+  }
+}

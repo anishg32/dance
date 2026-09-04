@@ -1,0 +1,297 @@
+.pageContainer {
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  padding-bottom: 6rem;
+  padding-top: 80px;
+}
+
+.heroSection {
+  background-color: var(--color-charcoal);
+  background-image: linear-gradient(135deg, #1A0808 0%, #3F1112 100%);
+  color: var(--color-ivory);
+  padding: 4rem 0 5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-maroon);
+  margin-bottom: 2rem;
+  border-bottom: 2px solid rgba(203, 161, 83, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.eventsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.eventCard {
+  display: flex;
+  background-color: var(--color-ivory);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.eventCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-dark);
+}
+
+.dateCol {
+  background-color: var(--color-charcoal);
+  color: var(--color-ivory);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  border-right: 4px solid var(--color-gold);
+}
+
+.dateMonth {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+}
+
+.dateDay {
+  font-size: 3rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0.2rem 0;
+}
+
+.dateYear {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.contentCol {
+  padding: 2rem;
+  flex: 1;
+}
+
+.typeBadge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(203, 161, 83, 0.1);
+  color: var(--color-gold-dark);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.eventTitle {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--color-maroon);
+  margin-bottom: 1rem;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.metaItem svg {
+  color: var(--color-gold-dark);
+}
+
+.eventDesc {
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-top: 1rem;
+  border-top: 1px dashed rgba(0,0,0,0.1);
+  padding-top: 1rem;
+}
+
+.actionCol {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 200px;
+  border-left: 1px solid rgba(0,0,0,0.05);
+  background-color: var(--bg-subtle);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 5rem 2rem;
+  background-color: var(--color-ivory);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 5rem;
+}
+
+.emptyIcon {
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyState h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-maroon);
+  margin-bottom: 0.5rem;
+}
+
+.emptyState p {
+  color: var(--text-secondary);
+}
+
+.pastSection {
+  margin-bottom: 4rem;
+}
+
+.pastGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.pastCard {
+  background-color: var(--color-ivory);
+  border-radius: var(--border-radius-sm);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  border-left: 3px solid var(--color-gold);
+}
+
+.pastHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.pastType {
+  color: var(--color-gold-dark);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.pastDate {
+  color: var(--text-secondary);
+}
+
+.pastTitle {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-maroon);
+  margin-bottom: 0.5rem;
+}
+
+.pastLocation {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.viewMoreContainer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.viewMoreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-maroon);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: opacity 0.2s;
+}
+
+.viewMoreLink:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+  .eventCard {
+    flex-direction: column;
+  }
+  
+  .dateCol {
+    flex-direction: row;
+    padding: 1rem;
+    gap: 1rem;
+    border-right: none;
+    border-bottom: 4px solid var(--color-gold);
+  }
+  
+  .dateMonth {
+    font-size: 1rem;
+  }
+  
+  .dateDay {
+    font-size: 1.8rem;
+  }
+  
+  .dateYear {
+    font-size: 0.9rem;
+  }
+  
+  .actionCol {
+    border-left: none;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .actionCol button {
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .actionCol {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,172 @@
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-top: -1.5rem;
+}
+
+.rankingList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.rankingCard {
+  background-color: var(--color-ivory);
+  border-radius: var(--border-radius-md);
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(203, 161, 83, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .rankingCard {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.rankingCard:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-gold);
+  border-color: rgba(203, 161, 83, 0.4);
+}
+
+.rankOne {
+  background: linear-gradient(to right, rgba(203, 161, 83, 0.05), var(--color-ivory));
+  border-left: 4px solid var(--color-gold);
+}
+
+.rankBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.rankNumber {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-charcoal);
+  font-size: 1.2rem;
+}
+
+.studentInfo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.avatarPlaceholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-maroon);
+  color: var(--color-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 2px solid var(--color-gold-light);
+}
+
+.studentName {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-maroon);
+  margin-bottom: 0.2rem;
+}
+
+.studentLevel {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.pointsGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.points {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gold-dark);
+}
+
+.pointsLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.trendWrapper {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trendUp { color: #2E7D32; }
+.trendDown { color: #D32F2F; }
+.trendSame { color: #757575; }
+
+.statsGroup {
+  display: flex;
+  gap: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .statsGroup {
+    border-top: none;
+    padding-top: 0;
+    border-left: 1px solid rgba(0,0,0,0.05);
+    padding-left: 1.5rem;
+  }
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statValue {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.actionContainer {
+  text-align: center;
+  margin-top: 3rem;
+}

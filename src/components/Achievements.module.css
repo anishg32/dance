@@ -1,0 +1,118 @@
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statCard {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--color-ivory);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(203, 161, 83, 0.1);
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-gold);
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-gold-dark);
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.featuredCard {
+  background: linear-gradient(135deg, var(--color-maroon) 0%, var(--color-maroon-dark) 100%);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem 2rem;
+  color: var(--color-ivory);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.featuredCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(var(--color-gold) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.featuredIcon {
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+  background-color: rgba(203, 161, 83, 0.1);
+  padding: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(203, 161, 83, 0.3);
+}
+
+.featuredContent {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
+}
+
+.featuredYear {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-gold-light);
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.featuredTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.featuredStudent {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.featuredLevel {
+  color: rgba(253, 251, 247, 0.7);
+  font-size: 1rem;
+}
+
+.featuredAction {
+  position: relative;
+  z-index: 2;
+}
