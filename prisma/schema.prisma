@@ -47,6 +47,7 @@ model StudentProfile {
 
   @@index([activeStatus])
   @@index([isPublic])
+  @@index([userId])
 }
 
 model ParentProfile {
@@ -55,6 +56,8 @@ model ParentProfile {
   user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   
   students         ParentStudent[]
+
+  @@index([userId])
 }
 
 model ParentStudent {
@@ -64,6 +67,8 @@ model ParentStudent {
   student          StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
 
   @@id([parentId, studentId])
+  @@index([parentId])
+  @@index([studentId])
 }
 
 model Award {
@@ -86,6 +91,7 @@ model Award {
   updatedAt        DateTime       @updatedAt
 
   @@index([verified])
+  @@index([studentId])
 }
 
 model Certificate {
@@ -100,6 +106,9 @@ model Certificate {
   
   createdAt        DateTime       @default(now())
   updatedAt        DateTime       @updatedAt
+
+  @@index([studentId])
+  @@index([isPublic])
 }
 
 model Performance {
@@ -117,6 +126,8 @@ model Performance {
   
   createdAt        DateTime             @default(now())
   updatedAt        DateTime             @updatedAt
+
+  @@index([date])
 }
 
 model StudentPerformance {
@@ -126,6 +137,8 @@ model StudentPerformance {
   performance      Performance    @relation(fields: [performanceId], references: [id], onDelete: Cascade)
 
   @@id([studentId, performanceId])
+  @@index([studentId])
+  @@index([performanceId])
 }
 
 model Event {
@@ -144,6 +157,7 @@ model Event {
   updatedAt        DateTime @updatedAt
 
   @@index([published])
+  @@index([date])
 }
 
 model Testimonial {
@@ -224,4 +238,8 @@ model AuditLog {
   details          String?
   
   createdAt        DateTime @default(now())
+
+  @@index([actorId])
+  @@index([targetId])
+  @@index([targetType])
 }

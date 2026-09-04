@@ -35,11 +35,11 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
         >
-          <Link href="/about" className="btn btn-primary">
-            Explore the Academy
+          <Link href="/admissions" className="btn btn-primary">
+            Apply for Admission
           </Link>
-          <Link href="/join" className="btn btn-outline" style={{ borderColor: 'var(--color-ivory)', color: 'var(--color-ivory)' }}>
-            Join the Academy
+          <Link href="/about" className="btn btn-outline" style={{ borderColor: 'var(--color-ivory)', color: 'var(--color-ivory)' }}>
+            Explore the Academy
           </Link>
         </motion.div>
       </div>
